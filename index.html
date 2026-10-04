@@ -1145,9 +1145,100 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
   .slide img{animation:none;transform:scale(1.02)}
   .lb__box{animation:none}
 }
+
+/* ============================================================
+   MOTION LAYER — scroll-driven pictures & video (light ivory)
+   ============================================================ */
+.scrollprog{position:fixed;inset-block-start:0;inset-inline:0;height:3px;z-index:220;background:rgba(184,135,63,.16);pointer-events:none}
+.scrollprog>span{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--bronze),var(--bronze-d));transform:scaleX(0);transform-origin:0 50%;transition:transform .06s linear}
+html[dir="rtl"] .scrollprog>span{transform-origin:100% 50%}
+
+/* hero — real background video + scroll-linked scrim */
+.hero__media{background:var(--ivory-3)}
+.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:62% 45%;will-change:transform}
+.hero__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(251,248,243,.90),rgba(251,248,243,.52) 45%,rgba(251,248,243,.92))}
+
+/* full-bleed scroll-story / scrub sections */
+.scrub{position:relative;height:320vh;background:var(--ivory-3)}
+.scrub--wood{height:180vh}
+.scrub__pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate}
+.scrub__canvas{position:absolute;inset:0;display:block;width:100vw;height:100vh;height:100svh}
+.scrub__still{display:none;width:100%;height:100%;object-fit:cover}
+.scrub__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:
+  linear-gradient(90deg,rgba(251,248,243,.90) 0%,rgba(251,248,243,.55) 40%,rgba(251,248,243,0) 76%),
+  linear-gradient(180deg,rgba(251,248,243,.60),rgba(251,248,243,0) 34%,rgba(251,248,243,.34) 100%)}
+html[dir="ltr"] .scrub__scrim{background:
+  linear-gradient(270deg,rgba(251,248,243,.90) 0%,rgba(251,248,243,.55) 40%,rgba(251,248,243,0) 76%),
+  linear-gradient(180deg,rgba(251,248,243,.60),rgba(251,248,243,0) 34%,rgba(251,248,243,.34) 100%)}
+.scrub__stack{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.scrub__step{position:absolute;inset:0;display:flex;align-items:center;padding-inline:clamp(22px,6vw,88px);opacity:0;visibility:hidden;will-change:opacity,transform}
+.scrub__step-in{max-width:600px}
+.scrub__step .eyebrow{margin-bottom:.6rem}
+.scrub__step h2,.scrub__step h3{font-size:clamp(1.7rem,4.6vw,3.05rem);color:var(--ink);line-height:1.14;letter-spacing:-.01em}
+.scrub__step p{color:#3A352C;font-size:clamp(1rem,2.1vw,1.2rem);line-height:1.6;max-width:44ch;margin-top:.65rem}
+.scrub__prog{position:absolute;inset-inline:0;bottom:0;height:3px;z-index:4;background:rgba(30,27,22,.10)}
+.scrub__prog>span{display:block;height:100%;width:0;background:var(--bronze);transition:width .06s linear}
+
+/* gallery video tiles */
+.gbtn video{width:100%;height:100%;object-fit:cover;display:block;background:var(--ivory-3);transition:transform .7s var(--ease)}
+.gbtn:hover video{transform:scale(1.06)}
+
+/* ambient fabric band */
+.sec--fabricband{position:relative;isolation:isolate;overflow:hidden}
+.fabricbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;background:var(--ivory-3)}
+.fabricbg__scrim{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(251,248,243,.94),rgba(251,248,243,.86) 50%,rgba(251,248,243,.95))}
+.sec--fabricband .wrap{position:relative;z-index:1}
+
+/* lightbox video */
+.lb__stage video{width:100%;max-height:74svh;object-fit:contain;background:#111;display:none}
+.lb__stage.is-video img{display:none}
+.lb__stage.is-video video{display:block}
+
+/* reveal + settle + parallax */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.is-in{opacity:1;transform:none}
+.rv-img{overflow:hidden}
+.rv-img img,.rv-img video{transform:scale(1.08) translateY(14px);transition:transform 1.2s var(--ease)}
+.rv-img.is-in img,.rv-img.is-in video{transform:none}
+[data-parallax]{will-change:transform}
+
+@media (max-width:768px){
+  .scrub{height:220vh}
+  .scrub--wood{height:150vh}
+  .scrub__step{padding-inline:20px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .scrollprog{display:none}
+  .hero__video{display:none}
+  .hero__media{background:url("assets/poster/loop-bedroom.jpg") center/cover no-repeat}
+  .hero__scrim{display:none}
+  .scrub{height:auto}
+  .scrub__pin{position:relative;height:auto;min-height:0}
+  .scrub__canvas{display:none}
+  .scrub__still{display:block;height:56vh}
+  .scrub__scrim{display:none}
+  .scrub__stack{position:relative;inset:auto;overflow:visible;padding-block:6px}
+  .scrub__step{position:static;opacity:1;visibility:visible;transform:none;display:block;padding:22px 20px;border-top:1px solid var(--line)}
+  .scrub__prog{display:none}
+  .rv,.rv-img img,.rv-img video{opacity:1;transform:none}
+  .rv-img img,.rv-img video{transition:none}
+}
+
+/* parallax coverage — media is oversized so translation never exposes an edge */
+.fabricbg{inset:-12% 0}
+.mats__media{position:relative}
+.mats__media img{position:absolute;inset-inline:0;top:-10%;height:120%}
+@media (prefers-reduced-motion: reduce){
+  .fabricbg{inset:0}
+  .mats__media img{position:static;height:100%}
+}
 </style>
 </head>
 <body>
+
+<!-- scroll progress -->
+<div class="scrollprog" aria-hidden="true"><span></span></div>
 
 <!-- skip link -->
 <a href="#hero" class="btn btn--line skip">
@@ -1256,19 +1347,11 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
      ========================================================== -->
 <section class="hero" id="hero">
   <div class="hero__media" aria-hidden="true">
-    <!-- Slide 1 = the ONLY preloaded/eager image in the page -->
-    <div class="slide">
-      <img src="assets/img/curtain_panel.jpg" alt="" width="1920" height="1200" fetchpriority="high" decoding="sync">
-    </div>
-    <div class="slide">
-      <img src="assets/img/majlis_arabic.jpg" alt="" width="1920" height="1200" loading="lazy" decoding="async">
-    </div>
-    <div class="slide">
-      <img src="assets/img/sofa_custom.jpg" alt="" width="1920" height="1200" loading="lazy" decoding="async">
-    </div>
-    <div class="slide">
-      <img src="assets/img/chandelier.jpg" alt="" width="1920" height="1200" loading="lazy" decoding="async">
-    </div>
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata"
+           poster="assets/poster/loop-bedroom.jpg">
+      <source src="assets/video/loop-bedroom.mp4" type="video/mp4">
+    </video>
+    <div class="hero__scrim" id="heroScrim"></div>
   </div>
 
   <div class="wrap hero__in">
@@ -1324,6 +1407,76 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
     <span data-ar="اكتشف المزيد" data-en="Scroll to explore">اكتشف المزيد</span>
     <span aria-hidden="true"></span>
   </a>
+</section>
+
+<!-- ==========================================================
+     3b · SCROLL STORY #1 — full-bleed frame scrub (assets/seq/room · 60 frames)
+     ========================================================== -->
+<section class="scrub" id="story" data-seq="assets/seq/room" data-frames="60"
+         aria-label="من الفكرة إلى التركيب" data-ar-aria="من الفكرة إلى التركيب" data-en-aria="From idea to installation">
+  <div class="scrub__pin">
+    <canvas class="scrub__canvas" aria-hidden="true"></canvas>
+    <img class="scrub__still" src="assets/seq/room/frame_001.jpg" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <div class="scrub__scrim" aria-hidden="true"></div>
+    <div class="scrub__stack">
+      <div class="scrub__step"><div class="scrub__step-in">
+        <span class="eyebrow" data-ar="كيف نعمل" data-en="How we work">كيف نعمل</span>
+        <h2 data-ar="زيارة وقياس مجاني" data-en="Free visit &amp; measuring">زيارة وقياس مجاني</h2>
+        <p data-ar="نزور موقعك في الدمام والمنطقة الشرقية، نقيس بدقة ونسمع ما تحتاجه — بلا التزام." data-en="We visit your site in Dammam and the Eastern Province, measure precisely and listen to what you need — with no obligation.">نزور موقعك في الدمام والمنطقة الشرقية، نقيس بدقة ونسمع ما تحتاجه — بلا التزام.</p>
+      </div></div>
+      <div class="scrub__step"><div class="scrub__step-in">
+        <span class="eyebrow" data-ar="الورشة" data-en="The workshop">الورشة</span>
+        <h2 data-ar="التفصيل في ورشتنا" data-en="Tailored in our workshop">التفصيل في ورشتنا</h2>
+        <p data-ar="كل قطعة تُصنع في ورشتنا الخاصة بالدمام، بإشراف مباشر ومتابعة للجودة في كل مرحلة." data-en="Every piece is built in our own Dammam workshop, under direct supervision and quality-checked at every stage.">كل قطعة تُصنع في ورشتنا الخاصة بالدمام، بإشراف مباشر ومتابعة للجودة في كل مرحلة.</p>
+      </div></div>
+      <div class="scrub__step"><div class="scrub__step-in">
+        <span class="eyebrow" data-ar="التسليم" data-en="Handover">التسليم</span>
+        <h2 data-ar="التركيب والضمان" data-en="Installation &amp; warranty">التركيب والضمان</h2>
+        <p data-ar="تركيب نظيف في الموعد المتفق عليه، مع ضمان على التركيب ومتابعة بعد التسليم." data-en="A clean installation on the agreed date, with a warranty on the work and follow-up after handover.">تركيب نظيف في الموعد المتفق عليه، مع ضمان على التركيب ومتابعة بعد التسليم.</p>
+      </div></div>
+    </div>
+    <div class="scrub__prog" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     3c · SCROLL STORY #2 — full-bleed frame scrub (assets/seq/drape · 67 frames)
+     ========================================================== -->
+<section class="scrub" id="drape" data-seq="assets/seq/drape" data-frames="67"
+         aria-label="الستائر على القياس" data-ar-aria="الستائر على القياس" data-en-aria="Curtains, made to measure">
+  <div class="scrub__pin">
+    <canvas class="scrub__canvas" aria-hidden="true"></canvas>
+    <img class="scrub__still" src="assets/seq/drape/frame_001.jpg" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <div class="scrub__scrim" aria-hidden="true"></div>
+    <div class="scrub__stack">
+      <div class="scrub__step"><div class="scrub__step-in">
+        <span class="eyebrow" data-ar="الستائر والبرادي" data-en="Curtains &amp; blinds">الستائر والبرادي</span>
+        <h2 data-ar="ستائر تُفصَّل على قياس نافذتك" data-en="Curtains tailored to your window">ستائر تُفصَّل على قياس نافذتك</h2>
+        <p data-ar="كتان ومخمل وجاكار وأقمشة معتمة وشفافة — نختار معك القماش المناسب لأجواء المنطقة الشرقية، ونفصّله على القياس بدقة." data-en="Linen, velvet, jacquard, blackout and sheer — we choose with you the fabric that suits the Eastern Province climate, and cut it precisely to your window.">كتان ومخمل وجاكار وأقمشة معتمة وشفافة — نختار معك القماش المناسب لأجواء المنطقة الشرقية، ونفصّله على القياس بدقة.</p>
+      </div></div>
+    </div>
+    <div class="scrub__prog" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     3d · MATERIALS / WOOD SCRUB BAND — full-bleed (assets/seq/wood · 53 frames)
+     ========================================================== -->
+<section class="scrub scrub--wood" id="woodband" data-seq="assets/seq/wood" data-frames="53"
+         aria-label="الأخشاب والخامات" data-ar-aria="الأخشاب والخامات" data-en-aria="Woods &amp; materials">
+  <div class="scrub__pin">
+    <canvas class="scrub__canvas" aria-hidden="true"></canvas>
+    <img class="scrub__still" src="assets/seq/wood/frame_001.jpg" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <div class="scrub__scrim" aria-hidden="true"></div>
+    <div class="scrub__stack">
+      <div class="scrub__step"><div class="scrub__step-in">
+        <span class="eyebrow" data-ar="الأخشاب والخامات" data-en="Woods &amp; materials">الأخشاب والخامات</span>
+        <h2 data-ar="500+ قماش وخامة تُعرض عليك في موقعك" data-en="500+ fabrics and finishes, shown to you on site">500+ قماش وخامة تُعرض عليك في موقعك</h2>
+        <p data-ar="أخشاب طبيعية وتشطيبات مقاومة للرطوبة، وأقمشة تُختار معك — نعرض عليك العينات قبل التنفيذ." data-en="Solid woods and moisture-resistant finishes, with fabrics chosen together with you — samples shown before we build.">أخشاب طبيعية وتشطيبات مقاومة للرطوبة، وأقمشة تُختار معك — نعرض عليك العينات قبل التنفيذ.</p>
+      </div></div>
+    </div>
+    <div class="scrub__prog" aria-hidden="true"><span></span></div>
+  </div>
 </section>
 
 <!-- ==========================================================
@@ -1461,8 +1614,8 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
 
       <figure class="gitem" data-cat="curtains">
         <button class="gbtn ar-34" type="button" data-cat="curtains"
-                data-ar-aria="عرض صورة: ستائر غرفة النوم" data-en-aria="View image: Layered bedroom curtains">
-          <img src="assets/img/curtain_bedroom.jpg" alt="ستائر غرفة النوم" data-ar-alt="ستائر غرفة النوم" data-en-alt="Layered bedroom curtains" width="900" height="1200" loading="lazy" decoding="async">
+                data-ar-aria="تشغيل فيديو: ستائر غرفة النوم" data-en-aria="Play video: Layered bedroom curtains">
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-fabric.jpg" data-src="assets/video/loop-fabric.mp4" width="900" height="1200"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1497,8 +1650,8 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
 
       <figure class="gitem" data-cat="wardrobes">
         <button class="gbtn ar-34" type="button" data-cat="wardrobes"
-                data-ar-aria="عرض صورة: خزانة مخصصة" data-en-aria="View image: Bespoke wardrobe">
-          <img src="assets/img/wood_wardrobe.jpg" alt="خزانة مخصصة" data-ar-alt="خزانة مخصصة" data-en-alt="Bespoke wardrobe" width="900" height="1200" loading="lazy" decoding="async">
+                data-ar-aria="تشغيل فيديو: خزانة مخصصة" data-en-aria="Play video: Bespoke wardrobe">
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-wood.jpg" data-src="assets/video/loop-wood.mp4" width="900" height="1200"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1557,8 +1710,8 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
 
       <figure class="gitem" data-cat="furniture">
         <button class="gbtn ar-45" type="button" data-cat="furniture"
-                data-ar-aria="عرض صورة: غرفة نوم رئيسية" data-en-aria="View image: Master bedroom">
-          <img src="assets/img/bed_master_wood.jpg" alt="غرفة نوم رئيسية" data-ar-alt="غرفة نوم رئيسية" data-en-alt="Master bedroom" width="900" height="1125" loading="lazy" decoding="async">
+                data-ar-aria="تشغيل فيديو: غرفة نوم رئيسية" data-en-aria="Play video: Master bedroom">
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-bedroom.jpg" data-src="assets/video/loop-bedroom.mp4" width="900" height="1125"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1605,8 +1758,8 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
 
       <figure class="gitem" data-cat="decor">
         <button class="gbtn ar-45" type="button" data-cat="decor"
-                data-ar-aria="عرض صورة: مجلس أرضي" data-en-aria="View image: Floor majlis">
-          <img src="assets/img/majlis_floor.jpg" alt="مجلس أرضي" data-ar-alt="مجلس أرضي" data-en-alt="Floor majlis" width="900" height="1125" loading="lazy" decoding="async">
+                data-ar-aria="تشغيل فيديو: مجلس أرضي" data-en-aria="Play video: Floor majlis">
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-living.jpg" data-src="assets/video/loop-living.mp4" width="900" height="1125"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1808,10 +1961,12 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
 <!-- ==========================================================
      9 · MATERIALS
      ========================================================== -->
-<section class="sec" id="materials">
+<section class="sec sec--fabricband" id="materials">
+  <video class="fabricbg" muted loop playsinline preload="none" poster="assets/poster/loop-fabric.jpg" data-src="assets/video/loop-fabric.mp4" aria-hidden="true"></video>
+  <div class="fabricbg__scrim" aria-hidden="true"></div>
   <div class="wrap mats">
     <div class="mats__media">
-      <img src="assets/img/fabric_swatches.jpg" alt="عينات الأقمشة" data-ar-alt="عينات الأقمشة" data-en-alt="Fabric swatches" width="1200" height="960" loading="lazy" decoding="async">
+      <img src="assets/img/fabric_swatches.jpg" alt="عينات الأقمشة" data-ar-alt="عينات الأقمشة" data-en-alt="Fabric swatches" width="1200" height="960" loading="lazy" decoding="async" data-parallax="34">
     </div>
     <div>
       <span class="eyebrow" data-ar="الأقمشة والخامات" data-en="Fabrics &amp; materials">الأقمشة والخامات</span>
@@ -2162,8 +2317,9 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
      ========================================================== -->
 <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="عارض الصور" data-ar-aria="عارض الصور" data-en-aria="Image viewer" hidden>
   <div class="lb__box" role="document">
-    <div class="lb__stage">
+    <div class="lb__stage" id="lbStage">
       <img id="lbImg" alt="" width="1200" height="900" decoding="async">
+      <video id="lbVid" controls muted playsinline preload="none" width="1280" height="720"></video>
       <button class="lb__btn lb__close" id="lbClose" type="button"
               data-ar-aria="إغلاق العارض" data-en-aria="Close viewer" data-ar-title="إغلاق" data-en-title="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -2353,7 +2509,9 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
     open: false,
     i: 0,
     root: document.getElementById('lightbox'),
+    stage: document.getElementById('lbStage'),
     img: document.getElementById('lbImg'),
+    vid: document.getElementById('lbVid'),
     cap: document.getElementById('lbCap'),
     count: document.getElementById('lbCount'),
     lastTrigger: null
@@ -2373,10 +2531,27 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
     if (!list.length) { return; }
     lb.i = ((lb.i % list.length) + list.length) % list.length;
     var it = list[lb.i];
-    var src = it.querySelector('img');
     var alt = it.querySelector('.gcap__t');
-    lb.img.setAttribute('src', src.getAttribute('src'));
-    lb.img.setAttribute('alt', alt ? alt.textContent : '');
+    var gv = it.querySelector('.gtile__video');
+    if (gv) {
+      /* video tile — open the video with controls (muted, no autoplay sound) */
+      var vsrc = gv.getAttribute('data-src') || gv.getAttribute('src');
+      if (vsrc && lb.vid.getAttribute('src') !== vsrc) { lb.vid.setAttribute('src', vsrc); }
+      lb.vid.setAttribute('poster', gv.getAttribute('poster') || '');
+      lb.stage.classList.add('is-video');
+      try { lb.vid.currentTime = 0; } catch (e) {}
+      var pr = lb.vid.play();
+      if (pr && pr.catch) { pr.catch(function () {}); }
+      lb.img.removeAttribute('src');
+    } else {
+      var src = it.querySelector('img');
+      lb.stage.classList.remove('is-video');
+      try { lb.vid.pause(); } catch (e) {}
+      lb.vid.removeAttribute('src');
+      try { if (lb.vid.load) { lb.vid.load(); } } catch (e) {}
+      lb.img.setAttribute('src', src ? src.getAttribute('src') : '');
+      lb.img.setAttribute('alt', alt ? alt.textContent : '');
+    }
     lb.cap.textContent = capText(it);
     lb.count.textContent = (lb.i + 1) + ' / ' + list.length;
   }
@@ -2399,6 +2574,10 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
     lb.root.hidden = true;
     document.body.classList.remove('lb-open');
     lb.img.setAttribute('src', '');
+    try { lb.vid.pause(); } catch (e) {}
+    lb.vid.removeAttribute('src');
+    try { if (lb.vid.load) { lb.vid.load(); } } catch (e) {}
+    lb.stage.classList.remove('is-video');
     if (lb.lastTrigger) { lb.lastTrigger.focus(); }
   }
   function step(d) {
@@ -2440,6 +2619,275 @@ html[lang="ar"] .crow__k{letter-spacing:normal;font-size:.82rem;text-transform:n
   if (mq.addEventListener) { mq.addEventListener('change', onMQ); }
   else if (mq.addListener) { mq.addListener(onMQ); }
 })();
+</script>
+
+<!-- ==========================================================
+     MOTION ENGINE — progressive enhancement.
+     Lenis (smooth scroll) + GSAP/ScrollTrigger (scrub, hero zoom,
+     parallax). Every call is guarded with typeof checks and the
+     section drives itself from native scroll if a CDN fails.
+     ========================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script>
+function adMotion() {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  var hasGSAP = (typeof gsap !== 'undefined');
+  var hasST = hasGSAP && (typeof ScrollTrigger !== 'undefined');
+  if (hasST) { try { gsap.registerPlugin(ScrollTrigger); } catch (e) { hasST = false; } }
+  var scrubByST = hasST && !reduce;
+
+  function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+
+  /* ---------- 1 · scroll progress bar ---------- */
+  var progBar = document.querySelector('.scrollprog > span');
+  function paintProgress() {
+    if (!progBar) { return; }
+    var h = document.documentElement;
+    var max = (h.scrollHeight - h.clientHeight) || 1;
+    progBar.style.transform = 'scaleX(' + clamp01((window.pageYOffset || h.scrollTop || 0) / max).toFixed(4) + ')';
+  }
+
+  /* ---------- 2 · full-bleed frame-sequence scrubs ---------- */
+  function Seq(el) {
+    this.el = el;
+    this.dir = el.getAttribute('data-seq');
+    this.total = parseInt(el.getAttribute('data-frames'), 10) || 0;
+    this.imgs = [];
+    this.ok = [];
+    this.cap = this.total;      /* frames beyond a missing one are never drawn */
+    this.broken = false;
+    this.loaded = 0;
+    this.p = 0;
+    this.cv = el.querySelector('.scrub__canvas');
+    this.prog = el.querySelector('.scrub__prog > span');
+    this.steps = Array.prototype.slice.call(el.querySelectorAll('.scrub__step'));
+  }
+  Seq.prototype.url = function (i) { return this.dir + '/frame_' + ('00' + i).slice(-3) + '.jpg'; };
+  Seq.prototype.nearest = function (i) {
+    i = Math.min(i, this.cap);
+    for (var k = i; k >= 1; k--) { if (this.ok[k]) { return k; } }
+    for (var j = 1; j <= this.cap; j++) { if (this.ok[j]) { return j; } }
+    return 0;
+  };
+  Seq.prototype.loadOne = function (i) {
+    var self = this;
+    var im = new Image();
+    im.decoding = 'async';
+    im.onload = function () {
+      self.imgs[i] = im; self.ok[i] = true; self.loaded++;
+      if (self.prog) { self.prog.style.width = Math.round((self.loaded / self.total) * 100) + '%'; }
+      self.draw(self.p, true);
+    };
+    im.onerror = function () {
+      /* a missing frame stops the sequence — never draw past it */
+      self.broken = true;
+      self.cap = Math.max(1, i - 1);
+    };
+    im.src = this.url(i);
+  };
+  Seq.prototype.load = function () {
+    var self = this, queue = [], i;
+    for (i = 1; i <= this.total; i++) { queue.push(i); }
+    var idx = 0;
+    function batch(n) {
+      if (self.broken) { return; }
+      var c = 0;
+      while (c < n && idx < queue.length) { self.loadOne(queue[idx++]); c++; }
+      if (idx < queue.length && !self.broken) {
+        var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 80); };
+        idle(function () { batch(8); });
+      }
+    }
+    batch(Math.min(10, this.total));   /* first 10 immediately, rest streamed */
+  };
+  Seq.prototype.sizeCanvas = function () {
+    var cv = this.cv; if (!cv) { return; }
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var dpr = Math.min(window.devicePixelRatio || 1, vw < 768 ? 1.5 : 2);
+    var w = Math.max(1, Math.round(vw * dpr)), h = Math.max(1, Math.round(vh * dpr));
+    if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; cv.__drawn = -1; }
+    var ctx = cv.__ctx || (cv.__ctx = cv.getContext('2d'));
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+  };
+  Seq.prototype.draw = function (p, force) {
+    var cv = this.cv;
+    if (!cv || !this.cap) { return; }
+    this.p = p;
+    var use = this.nearest(1 + Math.round(p * (this.cap - 1)));
+    if (!use) { return; }
+    if (!force && cv.__drawn === use) { return; }
+    this.sizeCanvas();
+    var ctx = cv.__ctx, img = this.imgs[use];
+    var w = cv.width, h = cv.height;
+    var iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
+    var s = Math.max(w / iw, h / ih);   /* cover-fit, no letterboxing */
+    ctx.drawImage(img, (w - iw * s) / 2, (h - ih * s) / 2, iw * s, ih * s);
+    cv.__drawn = use;
+  };
+  Seq.prototype.overlay = function (p) {
+    var n = this.steps.length;
+    for (var i = 0; i < n; i++) {
+      var el = this.steps[i], o;
+      if (n === 1) {
+        o = p > 0.86 ? (1 - p) / 0.14 : 1;          /* caption stays up, fades out at the end */
+      } else {
+        var s = i / n, e = (i + 1) / n, a = (p - s) / (e - s);
+        if (p < s || p > e) { o = 0; }
+        else if (i === 0) { o = a > 0.78 ? (1 - a) / 0.22 : 1; }   /* first step is up on entry */
+        else { o = a < 0.28 ? a / 0.28 : (a > 0.78 ? (1 - a) / 0.22 : 1); }
+      }
+      o = clamp01(o);
+      el.style.opacity = o.toFixed(3);
+      el.style.transform = 'translateY(' + ((1 - o) * 16).toFixed(1) + 'px)';
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+    }
+  };
+  Seq.prototype.step = function (p) { this.draw(p); this.overlay(p); };
+
+  var seqs = Array.prototype.slice.call(document.querySelectorAll('.scrub')).map(function (el) {
+    var s = new Seq(el);
+    if (!reduce) { s.load(); }
+    return s;
+  });
+
+  function nativeScrub() {
+    var vh = window.innerHeight;
+    for (var i = 0; i < seqs.length; i++) {
+      var s = seqs[i], r = s.el.getBoundingClientRect(), span = r.height - vh;
+      s.step(span > 0 ? clamp01((-r.top) / span) : 0);
+    }
+  }
+
+  if (scrubByST) {
+    seqs.forEach(function (s) {
+      ScrollTrigger.create({
+        trigger: s.el, start: 'top top', end: 'bottom bottom', scrub: true,
+        onUpdate: function (self) { s.step(self.progress); }
+      });
+    });
+    var hv = document.getElementById('heroVideo');
+    if (hv) { gsap.to(hv, { scale: 1.14, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: '80% top', scrub: true } }); }
+    var hs = document.getElementById('heroScrim');
+    if (hs) { gsap.to(hs, { opacity: 0.85, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: '80% top', scrub: true } }); }
+    gsap.utils.toArray('[data-parallax], .fabricbg').forEach(function (el) {
+      var amt = Math.min(40, Math.abs(parseFloat(el.getAttribute('data-parallax')) || 30));
+      gsap.fromTo(el, { y: amt }, { y: -amt, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
+    gsap.from('.hero__kicker, .hero h1, .hero__rule, .hero__sub, .hero__svc, .hero__cta, .pills, .scrollcue',
+      { opacity: 0, y: 24, duration: 0.9, ease: 'power3.out', stagger: 0.07, delay: 0.08 });
+  }
+
+  /* ---------- 3 · one scroll loop: progress bar (+ native scrub fallback) ---------- */
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    paintProgress();
+    if (!scrubByST) { nativeScrub(); }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  seqs.forEach(function (s) { s.overlay(0); s.draw(0, true); });
+  frame();
+
+  var rzT;
+  window.addEventListener('resize', function () {
+    clearTimeout(rzT);
+    rzT = setTimeout(function () {
+      seqs.forEach(function (s) { s.sizeCanvas(); s.draw(s.p, true); });
+      if (hasST) { try { ScrollTrigger.refresh(); } catch (e) {} }
+    }, 160);
+  });
+  if (hasST) { window.addEventListener('load', function () { try { ScrollTrigger.refresh(); } catch (e) {} }); }
+
+  /* ---------- 4 · gallery video tiles: play when >=50% visible ---------- */
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.gtile__video'));
+  if (!reduce && 'IntersectionObserver' in window) {
+    var tIO = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        var v = en.target;
+        if (en.intersectionRatio >= 0.5) {
+          if (!v.getAttribute('src') && v.getAttribute('data-src')) { v.setAttribute('src', v.getAttribute('data-src')); }
+          var pr = v.play(); if (pr && pr.catch) { pr.catch(function () {}); }
+        } else { try { v.pause(); } catch (e) {} }
+      });
+    }, { threshold: [0, 0.5, 0.75] });
+    tiles.forEach(function (v) { tIO.observe(v); });
+  }
+
+  /* ---------- 5 · fabric ambient band ---------- */
+  var fab = document.querySelector('.fabricbg');
+  if (fab && !reduce && 'IntersectionObserver' in window) {
+    var fIO = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting) {
+          if (!fab.getAttribute('src') && fab.getAttribute('data-src')) { fab.setAttribute('src', fab.getAttribute('data-src')); }
+          var pr = fab.play(); if (pr && pr.catch) { pr.catch(function () {}); }
+        } else { try { fab.pause(); } catch (e) {} }
+      });
+    }, { threshold: 0.2 });
+    fIO.observe(fab);
+  }
+
+  /* ---------- 6 · hero video ---------- */
+  var heroV = document.getElementById('heroVideo');
+  if (heroV) {
+    if (reduce) { heroV.removeAttribute('autoplay'); try { heroV.pause(); } catch (e) {} }
+    else { var hp = heroV.play(); if (hp && hp.catch) { hp.catch(function () {}); } }
+  }
+
+  /* ---------- 7 · reveal + settle (IntersectionObserver, staggered) ---------- */
+  var rvList = Array.prototype.slice.call(document.querySelectorAll('.sec-head, .card, .fcard, .step, .why__item, .gitem, .crow, .rating, .stat'));
+  var rvImgs = Array.prototype.slice.call(document.querySelectorAll('.fcard__media, .mats__media'));
+  rvImgs.forEach(function (w) { w.classList.add('rv-img'); });
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    rvList.forEach(function (el) { el.classList.add('rv', 'is-in'); });
+    rvImgs.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    rvList.forEach(function (el) {
+      el.classList.add('rv');
+      var sibs = Array.prototype.filter.call(el.parentElement ? el.parentElement.children : [], function (c) { return rvList.indexOf(c) >= 0; });
+      var idx = sibs.indexOf(el); if (idx < 0) { idx = 0; }
+      el.style.transitionDelay = Math.min(idx, 6) * 70 + 'ms';   /* 70ms stagger */
+    });
+    var rvIO = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); rvIO.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+    rvList.forEach(function (el) { rvIO.observe(el); });
+
+    var imIO = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); imIO.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    rvImgs.forEach(function (el) { imIO.observe(el); });
+
+    setTimeout(function () {   /* safety net: content is never left hidden */
+      rvList.forEach(function (el) { el.classList.add('is-in'); });
+      rvImgs.forEach(function (el) { el.classList.add('is-in'); });
+    }, 4000);
+  }
+
+  /* ---------- 8 · Lenis smooth scroll (desktop only, motion allowed) ---------- */
+  if (!reduce && !isTouch && typeof Lenis !== 'undefined') {
+    try {
+      var lenis = new Lenis({ autoRaf: false });
+      if (hasGSAP) {
+        lenis.on('scroll', function () { if (hasST) { ScrollTrigger.update(); } });
+        gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+        gsap.ticker.lagSmoothing(0);
+      } else {
+        var lraf = function (t) { lenis.raf(t); requestAnimationFrame(lraf); };
+        requestAnimationFrame(lraf);
+      }
+    } catch (e) {}
+  }
+}
+if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', adMotion); } else { adMotion(); }
 </script>
 </body>
 </html>
