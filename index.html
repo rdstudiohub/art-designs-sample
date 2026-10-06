@@ -1159,9 +1159,9 @@ html[dir="rtl"] .scrollprog>span{transform-origin:100% 50%}
 .hero__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(251,248,243,.90),rgba(251,248,243,.52) 45%,rgba(251,248,243,.92))}
 
 /* full-bleed scroll-story / scrub sections */
-.scrub{position:relative;height:320vh;background:var(--ivory-3)}
-.scrub--wood{height:180vh}
-.scrub__pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate}
+.scrub{position:relative;height:100svh;background:var(--ivory-3)}
+.scrub--wood{height:100svh}
+.scrub__pin{position:relative;height:100vh;height:100svh;overflow:hidden;isolation:isolate}
 .scrub__canvas{position:absolute;inset:0;display:block;width:100vw;height:100vh;height:100svh}
 .scrub__still{display:none;width:100%;height:100%;object-fit:cover}
 .scrub__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:
@@ -1203,8 +1203,8 @@ html[dir="ltr"] .scrub__scrim{background:
 [data-parallax]{will-change:transform}
 
 @media (max-width:768px){
-  .scrub{height:220vh}
-  .scrub--wood{height:150vh}
+  .scrub{height:100svh}
+  .scrub--wood{height:100svh}
   .scrub__step{padding-inline:20px}
 }
 
@@ -2782,15 +2782,17 @@ function adMotion() {
   function nativeScrub() {
     var vh = window.innerHeight;
     for (var i = 0; i < seqs.length; i++) {
-      var s = seqs[i], r = s.el.getBoundingClientRect(), span = r.height - vh;
-      s.step(span > 0 ? clamp01((-r.top) / span) : 0);
+      /* progress = 0 as the section's top reaches the bottom of the screen,
+         1 as its bottom leaves the top — no pinning, no scroll dead zone */
+      var s = seqs[i], r = s.el.getBoundingClientRect(), span = vh + r.height;
+      s.step(clamp01((vh - r.top) / span));
     }
   }
 
   if (scrubByST) {
     seqs.forEach(function (s) {
       ScrollTrigger.create({
-        trigger: s.el, start: 'top top', end: 'bottom bottom', scrub: true,
+        trigger: s.el, start: 'top bottom', end: 'bottom top', scrub: true,
         onUpdate: function (self) { s.step(self.progress); }
       });
     });
