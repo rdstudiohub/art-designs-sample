@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="assets/img/curtain_panel.jpg">
 
 <!-- Hero image is the ONLY eager/preloaded image; everything else is lazy -->
-<link rel="preload" as="image" href="assets/img/curtain_panel.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/curtain_panel.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap">
@@ -38,7 +38,7 @@
   "name": "فن التصاميم — ART DESIGNS",
   "alternateName": "ART DESIGNS",
   "description": "متخصصون في صناعة الأثاث والخزائن والديكورات — تفصيل الأثاث المخصص، الخزائن والأبواب، الستائر والبرادي، الديكورات والمشربيات، والتنجيد والتجديد في الدمام.",
-  "image": "assets/img/curtain_panel.jpg",
+  "image": "assets/img/curtain_panel.webp",
   "telephone": "+966532387652",
   "founder": "عبد الله علي المزنعي",
   "address": {
@@ -1211,7 +1211,7 @@ html[dir="ltr"] .scrub__scrim{background:
 @media (prefers-reduced-motion: reduce){
   .scrollprog{display:none}
   .hero__video{display:none}
-  .hero__media{background:url("assets/poster/loop-bedroom.jpg") center/cover no-repeat}
+  .hero__media{background:url("assets/poster/loop-bedroom.webp") center/cover no-repeat}
   .hero__scrim{display:none}
   .scrub{height:auto}
   .scrub__pin{position:relative;height:auto;min-height:0}
@@ -1347,10 +1347,8 @@ html[dir="ltr"] .scrub__scrim{background:
      ========================================================== -->
 <section class="hero" id="hero">
   <div class="hero__media" aria-hidden="true">
-    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata"
-           poster="assets/poster/loop-bedroom.jpg">
-      <source src="assets/video/loop-bedroom.mp4" type="video/mp4">
-    </video>
+    <img class="hero__video" id="heroVideo" src="assets/poster/loop-bedroom.webp"
+         alt="" aria-hidden="true" width="1280" height="720" decoding="async" fetchpriority="high">
     <div class="hero__scrim" id="heroScrim"></div>
   </div>
 
@@ -1416,7 +1414,7 @@ html[dir="ltr"] .scrub__scrim{background:
          aria-label="من الفكرة إلى التركيب" data-ar-aria="من الفكرة إلى التركيب" data-en-aria="From idea to installation">
   <div class="scrub__pin">
     <canvas class="scrub__canvas" aria-hidden="true"></canvas>
-    <img class="scrub__still" src="assets/seq/room/frame_001.jpg" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <img class="scrub__still" src="assets/seq/room/frame_001.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
     <div class="scrub__scrim" aria-hidden="true"></div>
     <div class="scrub__stack">
       <div class="scrub__step"><div class="scrub__step-in">
@@ -1446,7 +1444,7 @@ html[dir="ltr"] .scrub__scrim{background:
          aria-label="الستائر على القياس" data-ar-aria="الستائر على القياس" data-en-aria="Curtains, made to measure">
   <div class="scrub__pin">
     <canvas class="scrub__canvas" aria-hidden="true"></canvas>
-    <img class="scrub__still" src="assets/seq/drape/frame_001.jpg" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <img class="scrub__still" src="assets/seq/drape/frame_001.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
     <div class="scrub__scrim" aria-hidden="true"></div>
     <div class="scrub__stack">
       <div class="scrub__step"><div class="scrub__step-in">
@@ -1466,7 +1464,7 @@ html[dir="ltr"] .scrub__scrim{background:
          aria-label="الأخشاب والخامات" data-ar-aria="الأخشاب والخامات" data-en-aria="Woods &amp; materials">
   <div class="scrub__pin">
     <canvas class="scrub__canvas" aria-hidden="true"></canvas>
-    <img class="scrub__still" src="assets/seq/wood/frame_001.jpg" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <img class="scrub__still" src="assets/seq/wood/frame_001.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
     <div class="scrub__scrim" aria-hidden="true"></div>
     <div class="scrub__stack">
       <div class="scrub__step"><div class="scrub__step-in">
@@ -1603,7 +1601,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="curtains">
         <button class="gbtn ar-45" type="button" data-cat="curtains"
                 data-ar-aria="عرض صورة: مجلس بستائر فاخرة" data-en-aria="View image: Luxury majlis curtains">
-          <img src="assets/img/curtain_panel.jpg" alt="مجلس بستائر فاخرة" data-ar-alt="مجلس بستائر فاخرة" data-en-alt="Luxury majlis curtains" width="900" height="1125" loading="lazy" decoding="async">
+          <img src="assets/img/curtain_panel.webp" alt="مجلس بستائر فاخرة" data-ar-alt="مجلس بستائر فاخرة" data-en-alt="Luxury majlis curtains" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1615,7 +1613,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="curtains">
         <button class="gbtn ar-34" type="button" data-cat="curtains"
                 data-ar-aria="تشغيل فيديو: ستائر غرفة النوم" data-en-aria="Play video: Layered bedroom curtains">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-fabric.jpg" data-src="assets/video/loop-fabric.mp4" width="900" height="1200"></video>
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-fabric.webp" data-src="assets/video/loop-fabric.mp4" width="900" height="1200"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1627,7 +1625,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="curtains">
         <button class="gbtn ar-11" type="button" data-cat="curtains"
                 data-ar-aria="عرض صورة: ستائر زيتوني وكريمي" data-en-aria="View image: Olive and cream drapes">
-          <img src="assets/img/curtains_olive.jpg" alt="ستائر زيتوني وكريمي" data-ar-alt="ستائر زيتوني وكريمي" data-en-alt="Olive &amp; cream drapes" width="900" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/curtains_olive.webp" alt="ستائر زيتوني وكريمي" data-ar-alt="ستائر زيتوني وكريمي" data-en-alt="Olive &amp; cream drapes" width="900" height="900" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1639,7 +1637,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="curtains">
         <button class="gbtn ar-45" type="button" data-cat="curtains"
                 data-ar-aria="عرض صورة: ستائر رول" data-en-aria="View image: Roller and zebra blinds">
-          <img src="assets/img/blinds_modern.jpg" alt="ستائر رول" data-ar-alt="ستائر رول" data-en-alt="Roller &amp; zebra blinds" width="900" height="1125" loading="lazy" decoding="async">
+          <img src="assets/img/blinds_modern.webp" alt="ستائر رول" data-ar-alt="ستائر رول" data-en-alt="Roller &amp; zebra blinds" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1651,7 +1649,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="wardrobes">
         <button class="gbtn ar-34" type="button" data-cat="wardrobes"
                 data-ar-aria="تشغيل فيديو: خزانة مخصصة" data-en-aria="Play video: Bespoke wardrobe">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-wood.jpg" data-src="assets/video/loop-wood.mp4" width="900" height="1200"></video>
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-wood.webp" data-src="assets/video/loop-wood.mp4" width="900" height="1200"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1663,7 +1661,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="wardrobes">
         <button class="gbtn ar-45" type="button" data-cat="wardrobes"
                 data-ar-aria="عرض صورة: غرفة ملابس" data-en-aria="View image: Walk-in dressing room">
-          <img src="assets/img/wardrobe_walkin.jpg" alt="غرفة ملابس" data-ar-alt="غرفة ملابس" data-en-alt="Walk-in dressing room" width="900" height="1125" loading="lazy" decoding="async">
+          <img src="assets/img/wardrobe_walkin.webp" alt="غرفة ملابس" data-ar-alt="غرفة ملابس" data-en-alt="Walk-in dressing room" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1675,7 +1673,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="wardrobes">
         <button class="gbtn ar-11" type="button" data-cat="wardrobes"
                 data-ar-aria="عرض صورة: خزانة عرض" data-en-aria="View image: Display cabinet">
-          <img src="assets/img/wood_cabinet.jpg" alt="خزانة عرض" data-ar-alt="خزانة عرض" data-en-alt="Display cabinet" width="900" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/wood_cabinet.webp" alt="خزانة عرض" data-ar-alt="خزانة عرض" data-en-alt="Display cabinet" width="900" height="900" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1687,7 +1685,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="wardrobes">
         <button class="gbtn ar-43" type="button" data-cat="wardrobes"
                 data-ar-aria="عرض صورة: مطبخ خشبي مخصص" data-en-aria="View image: Bespoke wood kitchen">
-          <img src="assets/img/kitchen_wood_full.jpg" alt="مطبخ خشبي مخصص" data-ar-alt="مطبخ خشبي مخصص" data-en-alt="Bespoke wood kitchen" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/kitchen_wood_full.webp" alt="مطبخ خشبي مخصص" data-ar-alt="مطبخ خشبي مخصص" data-en-alt="Bespoke wood kitchen" width="1200" height="900" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1699,7 +1697,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="furniture">
         <button class="gbtn ar-34" type="button" data-cat="furniture"
                 data-ar-aria="عرض صورة: سرير خشبي مخصص" data-en-aria="View image: Custom wooden bed">
-          <img src="assets/img/wooden_bed.jpg" alt="سرير خشبي مخصص" data-ar-alt="سرير خشبي مخصص" data-en-alt="Custom wooden bed" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/wooden_bed.webp" alt="سرير خشبي مخصص" data-ar-alt="سرير خشبي مخصص" data-en-alt="Custom wooden bed" width="900" height="1200" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1711,7 +1709,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="furniture">
         <button class="gbtn ar-45" type="button" data-cat="furniture"
                 data-ar-aria="تشغيل فيديو: غرفة نوم رئيسية" data-en-aria="Play video: Master bedroom">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-bedroom.jpg" data-src="assets/video/loop-bedroom.mp4" width="900" height="1125"></video>
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-bedroom.webp" data-src="assets/video/loop-bedroom.mp4" width="900" height="1125"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1723,7 +1721,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="furniture">
         <button class="gbtn ar-11" type="button" data-cat="furniture"
                 data-ar-aria="عرض صورة: كنب مخصص" data-en-aria="View image: Custom sofa">
-          <img src="assets/img/sofa_custom.jpg" alt="كنب مخصص" data-ar-alt="كنب مخصص" data-en-alt="Custom sofa" width="900" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/sofa_custom.webp" alt="كنب مخصص" data-ar-alt="كنب مخصص" data-en-alt="Custom sofa" width="900" height="900" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1735,7 +1733,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="furniture">
         <button class="gbtn ar-34" type="button" data-cat="furniture"
                 data-ar-aria="عرض صورة: كرسي مخمل" data-en-aria="View image: Velvet armchair">
-          <img src="assets/img/armchair_velvet.jpg" alt="كرسي مخمل" data-ar-alt="كرسي مخمل" data-en-alt="Velvet armchair" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/armchair_velvet.webp" alt="كرسي مخمل" data-ar-alt="كرسي مخمل" data-en-alt="Velvet armchair" width="900" height="1200" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1747,7 +1745,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="decor">
         <button class="gbtn ar-43" type="button" data-cat="decor"
                 data-ar-aria="عرض صورة: مجلس عربي" data-en-aria="View image: Arabic majlis">
-          <img src="assets/img/majlis_arabic.jpg" alt="مجلس عربي" data-ar-alt="مجلس عربي" data-en-alt="Arabic majlis" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/majlis_arabic.webp" alt="مجلس عربي" data-ar-alt="مجلس عربي" data-en-alt="Arabic majlis" width="1200" height="900" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1759,7 +1757,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="decor">
         <button class="gbtn ar-45" type="button" data-cat="decor"
                 data-ar-aria="تشغيل فيديو: مجلس أرضي" data-en-aria="Play video: Floor majlis">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-living.jpg" data-src="assets/video/loop-living.mp4" width="900" height="1125"></video>
+          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-living.webp" data-src="assets/video/loop-living.mp4" width="900" height="1125"></video>
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1771,7 +1769,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="decor">
         <button class="gbtn ar-34" type="button" data-cat="decor"
                 data-ar-aria="عرض صورة: مشربية خشبية" data-en-aria="View image: Mashrabiya screen">
-          <img src="assets/img/wood_screen.jpg" alt="مشربية خشبية" data-ar-alt="مشربية خشبية" data-en-alt="Mashrabiya screen" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/wood_screen.webp" alt="مشربية خشبية" data-ar-alt="مشربية خشبية" data-en-alt="Mashrabiya screen" width="900" height="1200" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1783,7 +1781,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="decor">
         <button class="gbtn ar-43" type="button" data-cat="decor"
                 data-ar-aria="عرض صورة: وحدة تلفزيون" data-en-aria="View image: Bespoke TV unit">
-          <img src="assets/img/tv_unit_wood.jpg" alt="وحدة تلفزيون" data-ar-alt="وحدة تلفزيون" data-en-alt="Bespoke TV unit" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/tv_unit_wood.webp" alt="وحدة تلفزيون" data-ar-alt="وحدة تلفزيون" data-en-alt="Bespoke TV unit" width="1200" height="900" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1795,7 +1793,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="lighting">
         <button class="gbtn ar-45" type="button" data-cat="lighting"
                 data-ar-aria="عرض صورة: ثريا عصرية" data-en-aria="View image: Modern chandelier">
-          <img src="assets/img/chandelier.jpg" alt="ثريا عصرية" data-ar-alt="ثريا عصرية" data-en-alt="Modern chandelier" width="900" height="1125" loading="lazy" decoding="async">
+          <img src="assets/img/chandelier.webp" alt="ثريا عصرية" data-ar-alt="ثريا عصرية" data-en-alt="Modern chandelier" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1807,7 +1805,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="lighting">
         <button class="gbtn ar-34" type="button" data-cat="lighting"
                 data-ar-aria="عرض صورة: ثريا كريستال" data-en-aria="View image: Crystal chandelier">
-          <img src="assets/img/chandelier_crystal.jpg" alt="ثريا كريستال" data-ar-alt="ثريا كريستال" data-en-alt="Crystal chandelier" width="900" height="1200" loading="lazy" decoding="async">
+          <img src="assets/img/chandelier_crystal.webp" alt="ثريا كريستال" data-ar-alt="ثريا كريستال" data-en-alt="Crystal chandelier" width="900" height="1200" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1835,7 +1833,7 @@ html[dir="ltr"] .scrub__scrim{background:
 
       <article class="fcard">
         <div class="fcard__media">
-          <img src="assets/img/curtain_detail.jpg" alt="ستائر فاخرة" data-ar-alt="ستائر فاخرة" data-en-alt="Luxury curtains" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/curtain_detail.webp" alt="ستائر فاخرة" data-ar-alt="ستائر فاخرة" data-en-alt="Luxury curtains" width="1200" height="900" loading="lazy" decoding="async">
         </div>
         <div class="fcard__body">
           <h3 data-ar="ستائر فاخرة" data-en="Luxury curtains">ستائر فاخرة</h3>
@@ -1848,7 +1846,7 @@ html[dir="ltr"] .scrub__scrim{background:
 
       <article class="fcard">
         <div class="fcard__media">
-          <img src="assets/img/wardrobe_white_oak.jpg" alt="خزائن بلوط" data-ar-alt="خزائن بلوط" data-en-alt="White-oak wardrobes" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/wardrobe_white_oak.webp" alt="خزائن بلوط" data-ar-alt="خزائن بلوط" data-en-alt="White-oak wardrobes" width="1200" height="900" loading="lazy" decoding="async">
         </div>
         <div class="fcard__body">
           <h3 data-ar="خزائن بلوط" data-en="White-oak wardrobes">خزائن بلوط</h3>
@@ -1861,7 +1859,7 @@ html[dir="ltr"] .scrub__scrim{background:
 
       <article class="fcard">
         <div class="fcard__media">
-          <img src="assets/img/kitchen_wood_full.jpg" alt="مطبخ خشبي مخصص" data-ar-alt="مطبخ خشبي مخصص" data-en-alt="Bespoke wood kitchen" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/kitchen_wood_full.webp" alt="مطبخ خشبي مخصص" data-ar-alt="مطبخ خشبي مخصص" data-en-alt="Bespoke wood kitchen" width="1200" height="900" loading="lazy" decoding="async">
         </div>
         <div class="fcard__body">
           <h3 data-ar="مطبخ خشبي" data-en="Bespoke wood kitchen">مطبخ خشبي</h3>
@@ -1874,7 +1872,7 @@ html[dir="ltr"] .scrub__scrim{background:
 
       <article class="fcard">
         <div class="fcard__media">
-          <img src="assets/img/majlis_floor.jpg" alt="مجالس أرضية" data-ar-alt="مجالس أرضية" data-en-alt="Floor majlis" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/majlis_floor.webp" alt="مجالس أرضية" data-ar-alt="مجالس أرضية" data-en-alt="Floor majlis" width="1200" height="900" loading="lazy" decoding="async">
         </div>
         <div class="fcard__body">
           <h3 data-ar="مجالس أرضية" data-en="Floor majlis">مجالس أرضية</h3>
@@ -1887,7 +1885,7 @@ html[dir="ltr"] .scrub__scrim{background:
 
       <article class="fcard">
         <div class="fcard__media">
-          <img src="assets/img/sofa_set.jpg" alt="طقم جلوس" data-ar-alt="طقم جلوس" data-en-alt="Seating set" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/sofa_set.webp" alt="طقم جلوس" data-ar-alt="طقم جلوس" data-en-alt="Seating set" width="1200" height="900" loading="lazy" decoding="async">
         </div>
         <div class="fcard__body">
           <h3 data-ar="طقم جلوس" data-en="Seating sets">طقم جلوس</h3>
@@ -1900,7 +1898,7 @@ html[dir="ltr"] .scrub__scrim{background:
 
       <article class="fcard">
         <div class="fcard__media">
-          <img src="assets/img/wall_lights_brass.jpg" alt="إضاءة جدارية" data-ar-alt="إضاءة جدارية" data-en-alt="Brass wall lights" width="1200" height="900" loading="lazy" decoding="async">
+          <img src="assets/img/wall_lights_brass.webp" alt="إضاءة جدارية" data-ar-alt="إضاءة جدارية" data-en-alt="Brass wall lights" width="1200" height="900" loading="lazy" decoding="async">
         </div>
         <div class="fcard__body">
           <h3 data-ar="إضاءة جدارية" data-en="Brass wall lights">إضاءة جدارية</h3>
@@ -1927,7 +1925,7 @@ html[dir="ltr"] .scrub__scrim{background:
 
      <video class="vband__video" autoplay muted loop playsinline
             preload="none"
-            poster="assets/img/curtain_detail.jpg"
+            poster="assets/img/curtain_detail.webp"
             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1">
        <source src="assets/video/hero-1.mp4" type="video/mp4">
        <source src="assets/video/hero-2.mp4" type="video/mp4">
@@ -1936,13 +1934,13 @@ html[dir="ltr"] .scrub__scrim{background:
 <section class="vband" id="video" aria-label="فيديو أعمالنا" data-ar-aria="فيديو أعمالنا" data-en-aria="Our work in motion">
   <div class="vband__media" aria-hidden="true">
     <div class="slide" style="--dur:21s">
-      <img src="assets/img/curtain_detail.jpg" alt="" width="1920" height="1200" loading="lazy" decoding="async">
+      <img src="assets/img/curtain_detail.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async">
     </div>
     <div class="slide" style="--dur:21s;--d:7s">
-      <img src="assets/img/sofa_set.jpg" alt="" width="1920" height="1200" loading="lazy" decoding="async">
+      <img src="assets/img/sofa_set.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async">
     </div>
     <div class="slide" style="--dur:21s;--d:14s">
-      <img src="assets/img/chandelier_crystal.jpg" alt="" width="1920" height="1200" loading="lazy" decoding="async">
+      <img src="assets/img/chandelier_crystal.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -1962,11 +1960,11 @@ html[dir="ltr"] .scrub__scrim{background:
      9 · MATERIALS
      ========================================================== -->
 <section class="sec sec--fabricband" id="materials">
-  <video class="fabricbg" muted loop playsinline preload="none" poster="assets/poster/loop-fabric.jpg" data-src="assets/video/loop-fabric.mp4" aria-hidden="true"></video>
+  <img class="fabricbg" src="assets/poster/loop-fabric.webp" alt="" aria-hidden="true" width="1280" height="720" loading="lazy" decoding="async">
   <div class="fabricbg__scrim" aria-hidden="true"></div>
   <div class="wrap mats">
     <div class="mats__media">
-      <img src="assets/img/fabric_swatches.jpg" alt="عينات الأقمشة" data-ar-alt="عينات الأقمشة" data-en-alt="Fabric swatches" width="1200" height="960" loading="lazy" decoding="async" data-parallax="34">
+      <img src="assets/img/fabric_swatches.webp" alt="عينات الأقمشة" data-ar-alt="عينات الأقمشة" data-en-alt="Fabric swatches" width="1200" height="960" loading="lazy" decoding="async" data-parallax="34">
     </div>
     <div>
       <span class="eyebrow" data-ar="الأقمشة والخامات" data-en="Fabrics &amp; materials">الأقمشة والخامات</span>
@@ -2662,11 +2660,15 @@ function adMotion() {
     this.broken = false;
     this.loaded = 0;
     this.p = 0;
+    this.req = [];
+    this.primed = false;
+    this.lo = 1;
+    this.hi = 0;
     this.cv = el.querySelector('.scrub__canvas');
     this.prog = el.querySelector('.scrub__prog > span');
     this.steps = Array.prototype.slice.call(el.querySelectorAll('.scrub__step'));
   }
-  Seq.prototype.url = function (i) { return this.dir + '/frame_' + ('00' + i).slice(-3) + '.jpg'; };
+  Seq.prototype.url = function (i) { return this.dir + '/frame_' + ('00' + i).slice(-3) + '.webp'; };
   Seq.prototype.nearest = function (i) {
     i = Math.min(i, this.cap);
     for (var k = i; k >= 1; k--) { if (this.ok[k]) { return k; } }
@@ -2675,6 +2677,8 @@ function adMotion() {
   };
   Seq.prototype.loadOne = function (i) {
     var self = this;
+    if (this.ok[i] || this.req[i]) { return; }
+    this.req[i] = 1;
     var im = new Image();
     im.decoding = 'async';
     im.onload = function () {
@@ -2689,21 +2693,27 @@ function adMotion() {
     };
     im.src = this.url(i);
   };
-  Seq.prototype.load = function () {
-    var self = this, queue = [], i;
-    for (i = 1; i <= this.total; i++) { queue.push(i); }
-    var idx = 0;
-    function batch(n) {
-      if (self.broken) { return; }
-      var c = 0;
-      while (c < n && idx < queue.length) { self.loadOne(queue[idx++]); c++; }
-      if (idx < queue.length && !self.broken) {
-        var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 80); };
-        idle(function () { batch(8); });
-      }
-    }
-    batch(Math.min(10, this.total));   /* first 10 immediately, rest streamed */
+  /* Progressive loader. Only the frames around the playhead are fetched, so a phone on
+     mobile data never downloads 7 MB of stills it will not reach. The window is wide
+     enough (8 back / 18 ahead) that a fast flick still lands on a decoded frame. */
+  Seq.prototype.ensureRange = function (a, b) {
+    if (this.broken) { return; }
+    a = Math.max(1, a | 0); b = Math.min(this.cap, b | 0);
+    for (var i = a; i <= b; i++) { this.loadOne(i); }
   };
+  Seq.prototype.prime = function () {
+    if (this.primed) { return; }
+    this.primed = true;
+    this.hi = Math.min(this.cap, 12); this.lo = 1;
+    this.ensureRange(1, this.hi);
+  };
+  Seq.prototype.follow = function (idx) {
+    var lo = Math.max(1, (idx | 0) - 8), hi = Math.min(this.cap, (idx | 0) + 18);
+    if (lo === this.lo && hi === this.hi) { return; }
+    this.lo = lo; this.hi = hi;
+    this.ensureRange(lo, hi);
+  };
+  Seq.prototype.load = function () { this.prime(); };
   Seq.prototype.sizeCanvas = function () {
     var cv = this.cv; if (!cv) { return; }
     var vw = window.innerWidth, vh = window.innerHeight;
@@ -2747,11 +2757,25 @@ function adMotion() {
       el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
     }
   };
-  Seq.prototype.step = function (p) { this.draw(p); this.overlay(p); };
+  Seq.prototype.step = function (p) {
+    this.draw(p); this.overlay(p);
+    if (this.primed && this.cap) {
+      var idx = 1 + Math.round(p * (this.cap - 1));
+      if (idx > this.hi - 3 || idx < this.lo) { this.follow(idx); }
+    }
+  };
 
   var seqs = Array.prototype.slice.call(document.querySelectorAll('.scrub')).map(function (el) {
     var s = new Seq(el);
-    if (!reduce) { s.load(); }
+    if (reduce) { return s; }
+    if ('IntersectionObserver' in window) {
+      var sIO = new IntersectionObserver(function (es) {
+        es.forEach(function (en) {
+          if (en.isIntersecting) { s.prime(); s.follow(1); sIO.unobserve(en.target); }
+        });
+      }, { rootMargin: '120% 0px 120% 0px' });
+      sIO.observe(el);
+    } else { s.load(); }
     return s;
   });
 
@@ -2822,7 +2846,7 @@ function adMotion() {
 
   /* ---------- 5 · fabric ambient band ---------- */
   var fab = document.querySelector('.fabricbg');
-  if (fab && !reduce && 'IntersectionObserver' in window) {
+  if (fab && fab.tagName === 'VIDEO' && !reduce && 'IntersectionObserver' in window) {
     var fIO = new IntersectionObserver(function (es) {
       es.forEach(function (en) {
         if (en.isIntersecting) {
@@ -2836,7 +2860,7 @@ function adMotion() {
 
   /* ---------- 6 · hero video ---------- */
   var heroV = document.getElementById('heroVideo');
-  if (heroV) {
+  if (heroV && heroV.tagName === 'VIDEO') {
     if (reduce) { heroV.removeAttribute('autoplay'); try { heroV.pause(); } catch (e) {} }
     else { var hp = heroV.play(); if (hp && hp.catch) { hp.catch(function () {}); } }
   }
