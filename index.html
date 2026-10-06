@@ -457,12 +457,12 @@ body.nav-open .backdrop{opacity:1;visibility:visible}
    ============================================================ */
 .hero{
   position:relative;
-  min-height:calc(100svh - 116px);
+  min-height:auto;
   display:flex;
   align-items:center;
   overflow:hidden;
   isolation:isolate;
-  padding-block:clamp(66px, 8.5vh, 116px) clamp(58px, 7.5vh, 92px);
+  padding-block:clamp(62px, 7.6vh, 100px) clamp(44px, 5.4vh, 68px);
 }
 .hero__media{position:absolute;inset:0;z-index:-2;background:var(--ivory-3)}
 .slide{
@@ -500,20 +500,20 @@ body.nav-open .backdrop{opacity:1;visibility:visible}
   content:"";
   position:absolute;inset:0;
   background:linear-gradient(180deg,
-    rgba(251,248,243,.92) 0%,
-    rgba(251,248,243,.50) 17%,
-    rgba(251,248,243,.28) 42%,
-    rgba(251,248,243,.80) 76%,
-    rgba(251,248,243,.99) 100%);
+    rgba(251,248,243,.62) 0%,
+    rgba(251,248,243,.14) 20%,
+    rgba(251,248,243,.06) 46%,
+    rgba(251,248,243,.42) 78%,
+    rgba(251,248,243,.90) 100%);
 }
 .hero::before{
   content:"";
   position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(to var(--scrim-dir, left),
-    rgba(251,248,243,.96) 0%,
-    rgba(251,248,243,.80) 32%,
-    rgba(251,248,243,.30) 58%,
-    rgba(251,248,243,0) 82%);
+    rgba(251,248,243,.88) 0%,
+    rgba(251,248,243,.50) 34%,
+    rgba(251,248,243,.12) 60%,
+    rgba(251,248,243,0) 84%);
 }
 html[dir="ltr"] .hero{--scrim-dir:right}
 
@@ -700,8 +700,11 @@ html[lang="en"] .stat__num{font-weight:700}
 .chip:focus-visible{outline:2.5px solid var(--teal);outline-offset:2px}
 .chip[aria-pressed="true"]{background:var(--bronze);border-color:var(--bronze);color:#fff}
 
-.gallery{columns:4 232px;column-gap:16px}
-.gitem{break-inside:avoid;margin:0 0 16px;display:block}
+.gallery{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:2px 2px 16px;scrollbar-width:none;overscroll-behavior-x:contain}
+.gallery::-webkit-scrollbar{display:none}
+.gitem{flex:0 0 auto;width:min(76vw,320px);margin:0;scroll-snap-align:center}
+.gitem .gbtn{aspect-ratio:4/5 !important}
 .gitem.is-hidden{display:none}
 .gitem h3{margin:0}
 .gbtn{
@@ -756,9 +759,9 @@ html[lang="en"] .stat__num{font-weight:700}
 .gcap__t{font-size:.9rem;font-weight:700;color:var(--ink)}
 .gcap__c{font-size:.72rem;font-weight:700;color:var(--bronze);white-space:nowrap}
 
-@media (max-width:1024px){ .gallery{columns:3 200px} }
-@media (max-width:768px){ .gallery{columns:2 150px;column-gap:12px} .gitem{margin-bottom:12px} }
-@media (max-width:420px){ .gallery{columns:2 132px} }
+@media (max-width:1024px){ .gitem{width:min(52vw,320px)} }
+@media (max-width:768px){ .gitem{width:78vw} }
+@media (max-width:420px){ .gitem{width:84vw} }
 
 /* ---------- lightbox ---------- */
 .lb{
@@ -1233,6 +1236,17 @@ html[dir="ltr"] .scrub__scrim{background:
   .fabricbg{inset:0}
   .mats__media img{position:static;height:100%}
 }
+
+/* ---------- compact story bands: a normal image band, nothing pinned ---------- */
+.scrub{position:relative}
+.scrub__pin{position:relative !important;height:auto !important;min-height:0 !important;padding-block:0 !important}
+.scrub__canvas{display:none !important}
+.scrub__still{display:block !important;width:100%;height:min(46svh,420px) !important;object-fit:cover}
+.scrub__scrim{display:none !important}
+.scrub__stack{position:relative !important;inset:auto !important;overflow:visible !important;padding-block:0 !important}
+.scrub__step{position:static !important;opacity:1 !important;visibility:visible !important;transform:none !important;
+  display:block !important;padding:22px clamp(20px,6vw,88px) !important;border-top:1px solid var(--line);background:var(--ivory)}
+.scrub__prog{display:none !important}
 </style>
 </head>
 <body>
@@ -1410,11 +1424,11 @@ html[dir="ltr"] .scrub__scrim{background:
 <!-- ==========================================================
      3b · SCROLL STORY #1 — full-bleed frame scrub (assets/seq/room · 60 frames)
      ========================================================== -->
-<section class="scrub" id="story" data-seq="assets/seq/room" data-frames="60"
+<section class="scrub" id="story"
          aria-label="من الفكرة إلى التركيب" data-ar-aria="من الفكرة إلى التركيب" data-en-aria="From idea to installation">
   <div class="scrub__pin">
     <canvas class="scrub__canvas" aria-hidden="true"></canvas>
-    <img class="scrub__still" src="assets/seq/room/frame_001.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <img class="scrub__still" src="assets/poster/story-room.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
     <div class="scrub__scrim" aria-hidden="true"></div>
     <div class="scrub__stack">
       <div class="scrub__step"><div class="scrub__step-in">
@@ -1440,11 +1454,11 @@ html[dir="ltr"] .scrub__scrim{background:
 <!-- ==========================================================
      3c · SCROLL STORY #2 — full-bleed frame scrub (assets/seq/drape · 67 frames)
      ========================================================== -->
-<section class="scrub" id="drape" data-seq="assets/seq/drape" data-frames="67"
+<section class="scrub" id="drape"
          aria-label="الستائر على القياس" data-ar-aria="الستائر على القياس" data-en-aria="Curtains, made to measure">
   <div class="scrub__pin">
     <canvas class="scrub__canvas" aria-hidden="true"></canvas>
-    <img class="scrub__still" src="assets/seq/drape/frame_001.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <img class="scrub__still" src="assets/poster/loop-fabric.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
     <div class="scrub__scrim" aria-hidden="true"></div>
     <div class="scrub__stack">
       <div class="scrub__step"><div class="scrub__step-in">
@@ -1460,11 +1474,11 @@ html[dir="ltr"] .scrub__scrim{background:
 <!-- ==========================================================
      3d · MATERIALS / WOOD SCRUB BAND — full-bleed (assets/seq/wood · 53 frames)
      ========================================================== -->
-<section class="scrub scrub--wood" id="woodband" data-seq="assets/seq/wood" data-frames="53"
+<section class="scrub scrub--wood" id="woodband"
          aria-label="الأخشاب والخامات" data-ar-aria="الأخشاب والخامات" data-en-aria="Woods &amp; materials">
   <div class="scrub__pin">
     <canvas class="scrub__canvas" aria-hidden="true"></canvas>
-    <img class="scrub__still" src="assets/seq/wood/frame_001.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
+    <img class="scrub__still" src="assets/poster/loop-wood.webp" alt="" aria-hidden="true" width="1500" height="844" loading="lazy" decoding="async">
     <div class="scrub__scrim" aria-hidden="true"></div>
     <div class="scrub__stack">
       <div class="scrub__step"><div class="scrub__step-in">
@@ -1613,7 +1627,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="curtains">
         <button class="gbtn ar-34" type="button" data-cat="curtains"
                 data-ar-aria="تشغيل فيديو: ستائر غرفة النوم" data-en-aria="Play video: Layered bedroom curtains">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-fabric.webp" data-src="assets/video/loop-fabric.mp4" width="900" height="1200"></video>
+          <img src="assets/poster/loop-fabric.webp" alt="" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1649,7 +1663,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="wardrobes">
         <button class="gbtn ar-34" type="button" data-cat="wardrobes"
                 data-ar-aria="تشغيل فيديو: خزانة مخصصة" data-en-aria="Play video: Bespoke wardrobe">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-wood.webp" data-src="assets/video/loop-wood.mp4" width="900" height="1200"></video>
+          <img src="assets/poster/loop-wood.webp" alt="" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1709,7 +1723,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="furniture">
         <button class="gbtn ar-45" type="button" data-cat="furniture"
                 data-ar-aria="تشغيل فيديو: غرفة نوم رئيسية" data-en-aria="Play video: Master bedroom">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-bedroom.webp" data-src="assets/video/loop-bedroom.mp4" width="900" height="1125"></video>
+          <img src="assets/poster/loop-bedroom.webp" alt="" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -1757,7 +1771,7 @@ html[dir="ltr"] .scrub__scrim{background:
       <figure class="gitem" data-cat="decor">
         <button class="gbtn ar-45" type="button" data-cat="decor"
                 data-ar-aria="تشغيل فيديو: مجلس أرضي" data-en-aria="Play video: Floor majlis">
-          <video class="gtile__video" muted loop playsinline preload="none" poster="assets/poster/loop-living.webp" data-src="assets/video/loop-living.mp4" width="900" height="1125"></video>
+          <img src="assets/poster/loop-living.webp" alt="" width="900" height="1125" loading="lazy" decoding="async">
           <span class="gzoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span>
         </button>
         <figcaption class="gcap">
@@ -2765,7 +2779,7 @@ function adMotion() {
     }
   };
 
-  var seqs = Array.prototype.slice.call(document.querySelectorAll('.scrub')).map(function (el) {
+  var seqs = Array.prototype.slice.call(document.querySelectorAll('.scrub[data-seq]')).map(function (el) {
     var s = new Seq(el);
     if (reduce) { return s; }
     if ('IntersectionObserver' in window) {
